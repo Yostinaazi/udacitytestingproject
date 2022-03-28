@@ -646,9 +646,46 @@ String filePath = "E:\\main.txt";
       
     
       private void save()  {
+           try
+        {
+        String new1 = null;
+         for(InvoiceMain main:ListOfMains){
+            BufferedReader Mainbr = new BufferedReader(new FileReader(file));
+            String row=null;
+            // loop to read from file to invoice Main
+            String mainline=(main.getInvnumber()+","+date1.format(main.getInvdate())+","+main.getCustomername());
+             System.out.println("Mainnnnnis "+mainline);
+            //System.out.println("Mainnnnnis "+mainline);
+            while((row=Mainbr.readLine())!=null)
+            {
+                String[] MainInvParts=row.split(",");
+                String Invnumstr=MainInvParts[0];
+                 String Invdatestr=MainInvParts[1];
+                String Invcustomername=MainInvParts[2];
+                int Invnumer=Integer.parseInt(Invnumstr);
+                Date invdate=date1.parse(Invdatestr);
+                String all =("allllllllllllllllllllllllllllllllll"+Invnumstr+","+date1.format(invdate)+","+Invcustomername);
+                 System.out.println("alllllllll"+all);       
+             if(all.contains(mainline))
+             { System.out.println(" found");
+             break;}
+             else{
+                 System.out.println(" nottt found");
+                  new1=mainline;}
+            }
+            System.out.println(new1);
+            }
+        FileWriter main1=new FileWriter(file,true);
+        BufferedWriter main1br = new BufferedWriter(main1);
+       //  main1br.write('\n');
+        main1br.write(new1);
+        main1br.flush();
+        main1br.close();
+        }
+           catch(Exception ex)
+           {}
           
-          
-         try{
+      /*   try{
               int selectedrowindex=MainTable.getSelectedRow();
              FileWriter main=new FileWriter(file,true);
         BufferedWriter mainbr = new BufferedWriter(main);
