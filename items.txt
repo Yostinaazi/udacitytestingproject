@@ -4,4 +4,4 @@
 2,desk,8000,5
 3,pen,10,30
 3,paper,5,60
-3,remote,4,45,bable,50.0,5
+3,remote,4,45
