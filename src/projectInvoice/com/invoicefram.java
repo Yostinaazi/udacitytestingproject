@@ -646,6 +646,8 @@ String filePath = "E:\\main.txt";
       
     
       private void save()  {
+          
+          
          try{
               int selectedrowindex=MainTable.getSelectedRow();
              FileWriter main=new FileWriter(file,true);
@@ -653,7 +655,7 @@ String filePath = "E:\\main.txt";
         InvoiceMain selectedRow;
         selectedRow = InvoiceMaintableshow.getListOfMains().get(selectedrowindex);
          String invnumb=(""+selectedRow.getInvnumber());
-         String  invdate=(""+selectedRow.getInvdate());
+         String  invdate=(""+date1.format(selectedRow.getInvdate()));
         String name=selectedRow.getCustomername();
      //   mainbr.newLine();
         mainbr.write(""+invnumb+","+invdate+","+name);
@@ -674,6 +676,7 @@ String filePath = "E:\\main.txt";
         itemsbr.close();
             }
           catch(Exception ex){}
+         //////////////////////////////////////////////////// anther code to save new invoice but selected
        /* String mains="";
         String items="";
         try
